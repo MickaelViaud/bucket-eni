@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un souhait à la bucket list{% endblock %}
+
+{% block content %}
+    <div class="row g-5">
+        <div class="col-12">
+            <h2>{% block mainTitle %}Nouveau souhait !{% endblock %}</h2>
+            <p>Veuillez remplir le formulaire ci-dessous afin d'ajouter un souhait à la bucket list</p>
+            {% form_theme form 'bootstrap_5_layout.html.twig' %}
+            {{ form(form) }}
+        </div>
+    </div>
+
+{% endblock %}

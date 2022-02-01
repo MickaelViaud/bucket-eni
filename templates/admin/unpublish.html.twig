@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un souhait à la bucket list{% endblock %}
+
+{% block content %}
+    <div class="row g-5">
+        <div class="col-12">
+            <h2>{% block mainTitle %}Dépublier un souhait{% endblock %}</h2>
+            {% form_theme form 'bootstrap_5_layout.html.twig' %}
+            {{ form(form) }}
+            <a href="{{ path('admin_index') }}" class="btn btn-warning">Retour</a>
+        </div>
+    </div>
+
+{% endblock %}

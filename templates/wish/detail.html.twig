@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ wish.title }} | Bucket List{% endblock %}
+
+{% block content %}
+    <div class="row g-5">
+        <div class="col-12">
+            <h1>{{ wish.title }}</h1>
+            <p>{{ wish.description }}</p>
+            <ul>
+                <li>Auteur : {{ wish.author }}</li>
+                <li>Créé le : {{ wish.dateCreated | date('d/m/Y H:i:s') }}</li>
+                {% if wish.category is not empty %}
+                <li>Catégorie : {{ wish.category.name }}</li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

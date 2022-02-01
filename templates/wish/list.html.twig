@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur ma bucket List{% endblock %}
+
+{% block content %}
+    <div class="row g-5">
+        <div class="col-12">
+            <h2>{% block mainTitle %}Ma bucketList{% endblock %}</h2>
+
+            {% for success in app.flashes('success') %}
+                <div class="alert alert-success">{{ success }}</div>
+            {% endfor %}
+
+            <p>Voici ma super bucket list !</p>
+            <ul class="icon-list">
+                {% for objective in bucketArray %}
+                    {# Deux moyen d'afficher des sous-valeur : soit en écriture "array" avec le crochet et la clé, soit avec un point#}
+                    <li>
+                        <a href="{{ path('wish_detail', {'id':objective.id}) }}" rel="noopener" target="_blank">{{ objective.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Interface d'administration{% endblock %}
+
+{% block content %}
+
+    {% for success in app.flashes('success') %}
+        <div class="alert alert-success">{{ success }}</div>
+    {% endfor %}
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Catégorie</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Auteur</th>
+            <th scope="col">Date création</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for wish in bucketArray %}
+        <tr>
+            <th scope="row">{{ wish.id }}</th>
+            <td>{% if wish.category is not empty %}{{ wish.category.name }}{% else %}Aucune catégorie {% endif %}</td>
+            <td>{{ wish.title }}</td>
+            <td>{{ wish.author }}</td>
+            <td>{{ wish.dateCreated | date('d/m/Y') }}</td>
+            <td><a href="{{ path('admin_edit', {'wish': wish.id}) }}">Modifier</a> - <a href="{{ path('admin_unpublish', {'id': wish.id}) }}">Dépublier</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
