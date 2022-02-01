@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Security;
 
-#[Route('/', name: 'wish_', host: 'www.bucket.local')]
+#[Route('/', name: 'wish_', host: '%host%')]
 class WishController extends AbstractController
 {
     #[Route('/', name: 'list')]
